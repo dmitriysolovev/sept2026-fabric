@@ -19,10 +19,7 @@
               "typeProperties": {
                 "location": {
                   "type": "AzureBlobFSLocation",
-                  "fileSystem": {
-                    "value": "@pipeline().parameters.sourcefolder",
-                    "type": "Expression"
-                  },
+                  "fileSystem": "dev",
                   "fileName": "sales_dev.csv"
                 },
                 "columnDelimiter": ",",
@@ -44,7 +41,7 @@
               "fileExtension": ".txt"
             },
             "storeSettings": {
-              "type": "AzureBlobStorageWriteSettings"
+              "type": "LakehouseWriteSettings"
             },
             "datasetSettings": {
               "type": "DelimitedText",
@@ -87,21 +84,22 @@
         },
         "policy": {
           "timeout": "0.12:00:00",
+<<<<<<< HEAD
           "retry": 1,
           "retryIntervalInSeconds": 300,
           "secureInput": true,
           "secureOutput": true
+=======
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+>>>>>>> parent of 6eea3a7 (Pipeline parametrised)
         },
         "name": "Copy sales data",
         "description": "Copy sales data from azure data lake as is.",
         "dependsOn": []
       }
-    ],
-    "parameters": {
-      "sourcefolder": {
-        "type": "string",
-        "defaultValue": "dev"
-      }
-    }
+    ]
   }
 }
