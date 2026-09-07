@@ -88,9 +88,9 @@
         "policy": {
           "timeout": "0.12:00:00",
           "retry": 1,
-          "retryIntervalInSeconds": 30,
-          "secureInput": false,
-          "secureOutput": false
+          "retryIntervalInSeconds": 300,
+          "secureInput": true,
+          "secureOutput": true
         },
         "name": "Copy sales data",
         "description": "Copy sales data from azure data lake as is.",
